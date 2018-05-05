@@ -13,7 +13,7 @@
     <div class="form-box">
         <h1 style="text-align: center">Formulir</h1>
         <div>
-            <form action="result.php" method="POST"
+            <form action="router.php" method="POST"
             enctype="multipart/form-data">
                 <label for="name">Nama Lengkap</label>
                 <input required type="text" id="name" name="name" placeholder="Nama lengkap..">

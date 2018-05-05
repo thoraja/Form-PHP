@@ -11,12 +11,12 @@
 
 <body>
     <?php
-$extension = strtolower(pathinfo($_FILES['pic']['name'], PATHINFO_EXTENSION));
+$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 $photo = "images/uploaded." . $extension;
 if (file_exists($photo)) {
     unlink($photo);
 }
-move_uploaded_file($_FILES['pic']['tmp_name'], $photo);
+move_uploaded_file($file['tmp_name'], $photo);
 ?>
     <div class="form-box">
         <div>
@@ -24,35 +24,36 @@ move_uploaded_file($_FILES['pic']['tmp_name'], $photo);
                 <img class="pas-foto" src="<?php echo $photo ?>" alt="Pas Foto">
             </div>
             <label for="name">Nama Lengkap</label>
-            <div><?php echo $_POST['name']; ?></div>
+            <div><?php echo $data['name']; ?></div>
 
                 <label for="NIM">NIM</label>
-                <div><?php echo $_POST['NIM']; ?></div>
+                <div><?php echo $data['NIM']; ?></div>
 
                 <label for="email">Email</label>
-                <div><?php echo $_POST['email']; ?></div>
+                <div><?php echo $data['email']; ?></div>
 
                 <label for="gender">Jenis Kelamin</label>
-                <div><?php echo $_POST['gender']; ?></div>
+                <div><?php echo $data['gender']; ?></div>
 
                 <label for="facilities">Fasilitas yang dimiliki</label>
                 <div>
                     <ul>
-                    <?php 
-                    foreach ($_POST['facility'] as $facility) {
-                    echo "<li> " . $facility;}
+                    <?php
+                    foreach ($data['facility'] as $facility) {
+                        echo "<li> " . $facility;
+                    }
                     ?>
                     <ul>
                 </div>
 
                 <label for="division">Divisi Pilihan 1</label>
-                <div><?php echo $_POST['division1']; ?></div>
+                <div><?php echo $data['division1']; ?></div>
 
                 <label for="division">Divisi Pilihan 2</label>
-                <div><?php echo $_POST['division2']; ?></div>
+                <div><?php echo $data['division2']; ?></div>
 
                 <label for="Kelebihan">Kelebihan & Kekurangan</label>
-                <div><?php echo $_POST['kelebihan']; ?></div>
+                <div><?php echo $data['kelebihan']; ?></div>
         </div>
     </div>
 </body>
