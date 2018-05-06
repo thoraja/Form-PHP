@@ -29,6 +29,9 @@ move_uploaded_file($file['pic']['tmp_name'], $photo);
                 <label for="NIM">NIM</label>
                 <div><?php echo $data['NIM']; ?></div>
 
+                <label for="faculty">Fakultas</label>
+                <div><?php echo $fakultas; ?></div>
+
                 <label for="email">Email</label>
                 <div><?php echo $data['email']; ?></div>
 
