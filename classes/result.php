@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
     <title>Weeks of Welcoming SI</title>
 </head>
 
 <body>
     <?php
-$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+$extension = strtolower(pathinfo($file['pic']['name'], PATHINFO_EXTENSION));
 $photo = "images/uploaded." . $extension;
 if (file_exists($photo)) {
     unlink($photo);
 }
-move_uploaded_file($file['tmp_name'], $photo);
+move_uploaded_file($file['pic']['tmp_name'], $photo);
 ?>
     <div class="form-box">
         <div>
             <div>
-                <img class="pas-foto" src="<?php echo $photo ?>" alt="Pas Foto">
+                <img class="pas-foto" src="<?php echo "../../$photo" ?>" alt="Pas Foto">
             </div>
             <label for="name">Nama Lengkap</label>
             <div><?php echo $data['name']; ?></div>

@@ -1,26 +1,27 @@
 <?php
 
-// setup auto loader
-set_include_path("class/");
-spl_autoload_extensions(".class.php");
-spl_autoload_register();
-include('class/FormModel.class.php');
-include('class/FormController.class.php');
-include('class/FormView.class.php');
-// ambil informasi path info
-// $pathInfo = $_SERVER['PATH_INFO'];
+// setup auto include menggurnakan foreach
+foreach (glob("classes/*.class.php") as $filename)
+{
+    include $filename;
+}
 
-// ambil controller dan method dari path info
-// $mvc = explode("/", $pathInfo);
-// $controller = $mvc[1];
-// $method = $mvc[2];
-$data = $_POST;
-$file = $_FILES['pic'];
+//jika router.php dibuka tanpa pathinfo
+if (!isset($_SERVER['PATH_INFO'])) {
+  header('Location: router.php/FormController/viewForm');
+}
+
+//pathinfo
+$pathInfo = $_SERVER['PATH_INFO'];
+$mvc = explode("/", $pathInfo);
+$controller = $mvc[1];
+$method = $mvc[2];
 
 // instansiasi controller
-$c = new FormController();
-$c->setData($data);
-$c->setFile($file);
-$c->view();
+if (isset($_POST)) {
+  $c = new FormController();
+  $c->setData($_POST);
+  $c->setFile($_FILES);
+}
 // panggil method dari controller
-// call_user_func(array($c, $method));
+call_user_func(array($c, $method));

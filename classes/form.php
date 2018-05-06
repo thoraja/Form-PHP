@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
     <title>Weeks of Welcoming SI</title>
 </head>
 
@@ -13,7 +13,7 @@
     <div class="form-box">
         <h1 style="text-align: center">Formulir</h1>
         <div>
-            <form action="router.php" method="POST"
+            <form action="viewResult" method="POST"
             enctype="multipart/form-data">
                 <label for="name">Nama Lengkap</label>
                 <input required type="text" id="name" name="name" placeholder="Nama lengkap..">
